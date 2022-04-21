@@ -1,0 +1,378 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<style type="text/css">
+        <!--
+                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
+                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        //-->
+</style>
+</head>
+
+<body>
+
+<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
+         folgenden.</p>
+</iframe>
+
+<h2>&Uuml;bung 1</h2>
+<br><h3>Aufgabe 1 - 1.1</h3>
+
+<p><b>Beschreibung</b></p>
+<p>In dieser Übung geht es um die Fouriersynthese und -analyse. Erzeuge mit Matlab/Octave ein
+Sinusgemisch mit den folgenden Eigenschaften (f: Frequenz, A: Amplitude, phi Phasenwinkel):
+<br><br>
+f1=500Hz A1=1 phi1=0
+<br>
+f2=1000Hz A2=0,5 phi2=-pi/2
+<br>
+f3=2000Hz A3=0,25 phi3=pi
+<br><br>
+und einer Dauer von 5 s. Zeichne das Sinusgemisch mit plot im Bereich t=0-20ms. Dabei soll
+auf der x-Achse die Zeit in ms abgetragen sein. Gibt die Schwingung als Wave-Datei mit
+audiowrite aus, und zwar mit einer Abtastfrequenz fa von 16kHz und einer Auflösung von 16bit.
+Dabei skalieren, um Clipping zu vermeiden.</p>
+<hr/>
+<p><b>L&ouml;sung</b></p>
+<p>Zu Beginn werden die Parameter definiert und anschließend die Sinusschwingungen synthetisiert.</p>
+<code><pre>T = 5;                                          % Zeit in s
+Fs = 16e3;                                      % Abtastfrequenz in Hz
+Ta = 1/Fs;                                      % Abtastrate (Sample Rate)
+nBit = 16;                                      % Auflösung
+% Zeitvektor
+t_ = 0:Ta:T-Ta;
+% f1
+A1 = 1;                                         % Spitzenamplitude
+f1 = 500;                                       % Frequenz in Hz
+phi1 = 0;                                       % Phasenversatz in Rad
+% f2
+A2 = 0.5;                                       % Spitzenamplitude
+f2 = 1e3;                                       % Frequenz in Hz
+phi2 = -pi/2;                                   % Phasenversatz in Rad
+% f3
+A3 = 0.25;                                      % Spitzenamplitude
+f3 = 2e3;                                       % Frequenz in Hz
+phi3 = pi;                                      % Phasenversatz in Rad
+% Schwingungen
+sf1_ = A1 * sin(2*pi*f1*t_+phi1);               % Sinussignal 1
+sf2_ = A2 * sin(2*pi*f2*t_+phi2);               % Sinussignal 2
+sf3_ = A3 * sin(2*pi*f3*t_+phi3);               % Sinussignal 3
+
+f_ = sf1_ + sf2_ + sf3_;                        % Überlagerte Schwingung
+fn_ = (f_ - min(f_)) / (max(f_) - min(f_));     % Normalisierte Schwingung
+</pre></code>
+<p>Im Folgendem werden die einzelnen, erzeugten Schwingungen über die Gesamtzeit von 5 Sekunden dargestellt.</p>
+<code><pre>
+% Plot Sinusschwingungen
+figure('Name', 'Einzelschwingungen')
+subplot(3, 1, 1);
+% Plot f1
+plot(t_, sf1_);
+xlabel('Zeit in s');
+ylabel('A(t)');
+subplot(3, 1, 2);
+% Plot f2
+plot(t_, sf2_);
+xlabel('Zeit in s');
+ylabel('A(t)');
+subplot(3, 1, 3);
+% Plot f3
+plot(t_, sf3_);
+xlabel('Zeit in s');
+ylabel('A(t)');
+</pre></code>
+<img src="../UE1/images/fig1_Signals.jpg" />
+<p>Da diese Darstellung nicht besonders aussagekräftig ist, werden die Schwingungen im Bereich zwischen 0 und 10ms betrachtet.</p>
+<code><pre>
+figure('Name', 'Einzelschwingungen bis 10ms')
+subplot(3, 1, 1);
+% Plot f1
+plot(t_ * 1000, sf1_);
+xlim([0, 10]);
+xlabel('Zeit in ms');
+ylabel('A(t)');
+subplot(3, 1, 2);
+% Plot f2
+plot(t_ * 1000, sf2_);
+xlim([0, 10]);
+xlabel('Zeit in ms');
+ylabel('A(t)');
+subplot(3, 1, 3);
+% Plot f3
+plot(t_ * 1000, sf3_);
+xlim([0, 10]);
+xlabel('Zeit in ms');
+ylabel('A(t)');
+</pre></code>
+<img src="../UE1/images/fig2_Signals10ms.jpg" />
+<p>Addieren wir die Einzelschwingungen, so erhalten wir die Überlagerte Sinusschwingung. Hier dargestellt im Bereich zwischen 0 und 20ms.</p>
+<code><pre>
+% Plot Überlagerte Schwingung
+figure('Name', 'Überlagerte Schwingung bis 20ms')
+% Plot bis 20ms
+plot(t_ * 1000, f_)
+xlabel('Zeit in ms');
+ylabel('A(t)');
+xlim([0 20]);
+</pre></code>
+<img src="../UE1/images/fig3_Signal.jpg" />
+<p>Um Clipping zu vermeiden muss das Signal normalisiert (in den Bereich zwischen 0 und 1 skaliert) werden.</p>
+<code><pre>
+% Plot normalisierte Überlagerte Schwingung
+figure('Name', 'Normalisierte Überlagerte Schwingung bis 20ms')
+% Plot bis 20ms
+plot(t_ * 1000, fn_)
+xlabel('Zeit in ms');
+ylabel('A(t)');
+xlim([0 20]);
+</pre></code>
+<img src="../UE1/images/fig4_SignalNorm.jpg" />
+<p>Das hier entstandene Signal können wir als Audiodatei abspeichern.</p>
+<code><pre>
+% Schreibe .wav
+audiowrite('A1.wav', fn_, Fs, 'BitsPerSample', nBit);
+</pre></code>
+
+<audio controls><source src="../UE1/audio/A1.wav" type="audio/wav"></audio>
+<p>Es wurde dabei beobachtet, dass die, im Browser (Firefox), abgespielte Tonspur ab ~3s ein "klappern" enthält. Dieses Verhalten ist z.B. in Praat nicht erkennbar.</p>
+
+<br><h3>Aufgabe 1 - 1.2</h3>
+<br><p><b>Beschreibung</b></p>
+<p>Berechne die Fouriertransformation der Sinusschwingung mit der Funktion fft und stelle das
+ermittelte Amplitudenspektrum mit plot dar. Auf der x-Achse soll dabei die Frequenz in Hertz
+abgetragen werden dar und zwar zunächst für den Bereich zwischen 0 und Abtastfrequenz fa.
+Was fällt beim Betrachten des Spektrums auf? (1)</p>
+<p>Variiere dabei die Framelänge zwischen 50ms, 100ms, 500ms, 1 s und 5 s. Welche
+Frequenzauflösung delta f erhältst du für die verschiedenen Framelängen? Zoome nun in den
+Bereich 0 bis 4 kHz hinein. Was fällt beim Spektrum bei der Variation der Framelänge auf? Wie
+kann man sich diesen Unterschied erklären? (2)</p>
+<br/>
+<p><b>L&ouml;sung</b></p>
+<p>Im Folgendem wird die Fouriertransformation für das erzeugte Signal mit unterschiedlicher Framelänge ermittelt. Anschließend werden diese wie gewünscht graphisch visualisiert.</p>
+<code><pre>
+% Anzahl an Stützstellen
+N = T*Fs;
+% Fouriertranformation für Signal bis 50ms
+F50_ = fft(f_(1:(0.05/Ta)+1), N);
+% Fouriertransformation für Signal bis 100ms
+F100_ = fft(f_(1:(0.1/Ta)+1), N);
+% Fouriertransformation für Signal bis 500ms
+F500_ = fft(f_(1:(0.5/Ta)+1), N);
+% Fouriertransformation für Signal bis 1s
+F1000_ = fft(f_(1:(1/Ta)+1), N);
+% Fouriertransformation für Signal bis 5s (komplett)
+F5000_ = fft(f_, N);
+
+df = Fs/N;
+fq_ = 0:df:Fs-df;
+% Plot Fouriertransformationen
+figure('Name', 'Spektrum der Überlagerten Sinusschwingung')
+subplot(5, 1, 1);
+% Plot Frequenzspektrum bis 50ms
+plot(fq_, abs(F50_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 50ms');
+subplot(5, 1, 2);
+% Plot Frequenzspektrum bis 100ms
+plot(fq_, abs(F100_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 100ms');
+subplot(5, 1, 3);
+% plot Frequenzspektrum bis 500ms
+plot(fq_, abs(F500_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 500ms');
+subplot(5, 1, 4);
+% Plot Frequenzspektrum bis 1s
+plot(fq_, abs(F1000_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 1s');
+subplot(5, 1, 5);
+% Plot Frequenzspektrum bis 5s (komplett)
+plot(fq_, abs(F5000_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 5s');
+
+% Plot Bereich <= 4kHz
+%
+% Durch die Erhöhung der Sampleanzahl verbessern wir die Frequenzauflösung.
+% Bei geringer Sampleanzahl sind neben den relevanten Frequenzen auch 
+% Störungen enthalten.
+%
+
+figure('Name', 'Spektrum bis 4kHz')
+subplot(5, 1, 1);
+% Plot Frequenzspektrum bis 50ms
+plot(fq_, abs(F50_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0, 4000]);
+title('Spektrum bis 50ms');
+subplot(5, 1, 2);
+% Plot Frequenzspektrum bis 100ms
+plot(fq_, abs(F100_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0, 4000]);
+title('Spektrum bis 100ms');
+subplot(5, 1, 3);
+% plot Frequenzspektrum bis 500ms
+plot(fq_, abs(F500_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0, 4000]);
+title('Spektrum bis 500ms');
+subplot(5, 1, 4);
+% Plot Frequenzspektrum bis 1s
+plot(fq_, abs(F1000_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0, 4000]);
+title('Spektrum bis 1s');
+subplot(5, 1, 5);
+% Plot Frequenzspektrum bis 5s (komplett)
+plot(fq_, abs(F5000_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0, 4000]);
+title('Spektrum bis 5s');
+</pre></code>
+<img src="../UE1/images/fig5_Spektrum.jpg" />
+<p><b>(1)</b><br> Das hier dargestellte Spektrum ist Achsensymmetrisch um den Wert x=Fs/2. <br>Das heißt das Spektrum besitzt einen Spiegelbereich für Fs/2 &lt; x &le; Fs.</p>
+<img src="../UE1/images/fig6_Spektrum4kHz.jpg" />
+<p><b>(2)</b><br> Es zeigt sich, dass bei geringerer Framel&auml;nge diverse St&ouml;rsignale enthalten sind.<br> Diese verschwinden bei Erh&ouml;hung der Framel&auml;nge, wodurch sich die Aufl&ouml;sung des Frequenzbereiches verbessert.<br>Die Frequenzen der erzeugten Einzelnschwingungen (500Hz, 1kHz und 2kHz) sind hier erkennbar und werden umso deutlicher desto größer die Framel&auml;nge gew&auml;hlt wird.</p>
+<br><h3>Aufgabe 1 - 1.3</h3>
+<br><p><b>Beschreibung</b></p>
+<p>Nimm nun in Praat den Vokal ‚a‘ und den Vokal ‚i‘ mit 16kHz mono auf, und zwar für jedes
+Gruppenmitglied. Achte darauf, dass am Anfang der Datei und am Ende keine Pausen bleiben,
+d.h, die Datei soll gleich mit dem Sprachsignal beginnen.
+Lies die Datei mit wavread in deinem Matlab-Programm ein. Berechne auch von diesem Signal
+die Fouriertransformation, diesmal mit Framebreiten von 50ms, 100ms, 500ms, 1 s. Wie
+unterscheiden sich die Vokale in ihrem Spektrum vom Sinusgemisch und wie unterscheiden sie
+sich voneinander?</p>
+<p><b>Aufnahme</b></p>
+<audio controls><source src="../UE1/audio/a.wav" type="audio/wav"></audio>
+<p><b>L&ouml;sung</b></p>
+<code><pre>
+%
+% Vokal/Phon 'A'
+%
+[ya_, Fs_a] = audioread('audio/a.wav');
+Na = length(ya_);
+T_a = Na/Fs_a;
+
+Fa50_ = fft(ya_(1:0.05*Fs_a), Na);
+Fa100_ = fft(ya_(1:0.1*Fs_a), Na);
+Fa500_ = fft(ya_(1:0.5*Fs_a), Na);
+Fa1000_ = fft(ya_(1:0.5*Fs_a), Na);
+Fa_ = fft(ya_, Na);
+
+dfa = Fs_a/Na;
+fq_a = 0:dfa:Fs_a-dfa;
+
+% Plot Fouriertransformationen
+figure('Name', 'Vokal A')
+subplot(5, 1, 1);
+% Plot Frequenzspektrum bis 50ms
+plot(fq_a, abs(Fa50_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 50ms');
+subplot(5, 1, 2);
+% Plot Frequenzspektrum bis 100ms
+plot(fq_a, abs(Fa100_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 100ms');
+subplot(5, 1, 3);
+% plot Frequenzspektrum bis 500ms
+plot(fq_a, abs(Fa500_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 500ms');
+subplot(5, 1, 4);
+% Plot Frequenzspektrum bis 1s
+plot(fq_a, abs(Fa1000_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 1s');
+subplot(5, 1, 5);
+% Plot Frequenzspektrum bis 5s (komplett)
+plot(fq_a, abs(Fa_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0 Fs_a/2]);
+title(sprintf('Spektrum über gesamtes Signal (%0.3f s)', T_a));
+</pre></code>
+<img src="../UE1/images/fig7_Vokal_A.jpg" width=800 />
+<br>
+<p><b>Aufnahme</b></p>
+<audio controls><source src="../UE1/audio/i.wav" type="audio/wav"></audio>
+<p><b>L&ouml;sung</b></p>
+<code><pre>
+%
+% Vokal/Phon 'I'
+%
+[yi_, Fs_i] = audioread('audio/i.wav');
+Ni = length(yi_);
+T_i = Ni/Fs_i;
+
+Fi50_ = fft(yi_(1:0.05*Fs_i), Ni);
+Fi100_ = fft(yi_(1:0.1*Fs_i), Ni);
+Fi500_ = fft(yi_(1:0.5*Fs_i), Ni);
+Fi1000_ = fft(yi_(1:0.5*Fs_i), Ni);
+Fi_ = fft(yi_, Ni);
+
+dfi = Fs_i/Ni;
+fq_i = 0:dfi:Fs_i-dfi;
+
+% Plot Fouriertransformationen
+figure('Name', 'Vokal I')
+subplot(5, 1, 1);
+% Plot Frequenzspektrum bis 50ms
+plot(fq_i, abs(Fi50_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 50ms');
+subplot(5, 1, 2);
+% Plot Frequenzspektrum bis 100ms
+plot(fq_i, abs(Fi100_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 100ms');
+subplot(5, 1, 3);
+% plot Frequenzspektrum bis 500ms
+plot(fq_i, abs(Fi500_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 500ms');
+subplot(5, 1, 4);
+% Plot Frequenzspektrum bis 1s
+plot(fq_i, abs(Fi1000_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+title('Spektrum bis 1s');
+subplot(5, 1, 5);
+% Plot Frequenzspektrum bis 5s (komplett)
+plot(fq_i, abs(Fi_));
+xlabel('Frequenz in Hz');
+ylabel('A(f)');
+xlim([0 Fs_i/2]);
+title(sprintf('Spektrum über gesamtes Signal (%0.3f s)', T_i));
+</pre></code>
+<img src="../UE1/images/fig8_Vokal_I.jpg" width=800 />
+<br>
+<p>Im Spektrum der Vokale sind diverse Frequenzen enthalten. Es zeigt sich auch, dass Obertöne ggf. eine größere Amplitude besitzen, als die Grundschwingung und das neben den klar erkennbaren Tonfrequenzen Rauschen enthalten ist. Dieses stellt sich dadurch dar, dass hier eine annähernd konstante Amplitude über einen größeren Frequenzbereich aufzufinden ist. Die Amplituden in diesem Bereich sind wesentlich geringer als die der erkennbaren Frequenzen.<br>Beim Vokal 'A' sind eine ganze Menge an Frequenzen bis ~1500Hz enthalten. Die größte Amplitude tritt dabei bei rund 805Hz auf, gefolgt von rund 715Hz und 90Hz (Grundschwingung). Betrachtet man hier die Frequenzen der einzelnen Teilschwingungen genauer, so fällt ein Versatz zwischen ~450Hz und ~335Hz auf, welcher >90Hz (Grundfrequenz) ist. Dieser Versatz verletzt die Bedingung der Harmonischen Schwingung, nach welcher die Frequenzen einem Vielfachem der Grundfrequenz entsprechen sollen. Der Grund für diesen Versatz kann verschiedene Ursachen haben und ist vorwiegend der natürlichen (ungeübten) Tonerzeugung beim Menschen geschuldet. Neben den erkennbaren Frequenzen ist Rauschen enthalten. Dieses zeigt sich im Bereich zwischen ~2400 und ~2780Hz, sowie im Bereich zwischen ~2950 und ~4500Hz<br>Beim Vokal 'I' sind weniger Frequenzen enthalten. Jedoch ist hier der erste Oberton mit einer deutlichen größeren Amplitude, als die der Grundfrequenz, aufzufinden. Zusätzlich lässt sich hier Rauschen im Bereich zwischen ~1930 und ~2040Hz, sowie im Bereich zwischen ~2900 und ~3900Hz erkennen.</p>
+<hr><br>
+<h3><u>Anhang</u></h3>
+<a href="../UE1/a1.m" target="_blank">MATLAB Script</a>
+</body>
+</html>
