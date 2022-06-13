@@ -1,0 +1,98 @@
+
+Satz
+Die Grundlage einer Geschichte ist die Lyrik, Epic oder Dramatik.
+
+CVC
+hat, hit, hut, het, hot
+
+VCV
+Anne, Amme, Affe, Asche, Achse
+
+Unterschied ADVs
+
+Satz hat steilere Kanten
+Satz_f geht mehr in die Breite, d.h. hat ein breiteres Amplitudenspektrum
+Satz_f ist erkennbar nicht symetrisch, überhang nach +
+Satz ist nicht ganz symetrisch, überhang nach -
+
+Satz Mittelwert (DC Offset): -0.0272
+Satz_f Mittelwert (DC Offset): -0.0646
+
+hat
+Formanten von 'a'
+824.5, 161
+1439.9, 227
+2866.8, 604
+3965.2, 574
+
+hit
+Formanten von 'i'
+352.5, 250
+2002.1, 109
+2760.2, 269
+3778.2, 172
+
+hut
+Formanten von 'u'
+642, 86
+2181.9, 192
+2991.6, 2434
+4220.8, 757
+
+het
+Formanten von 'e'
+336.4, 54
+2310.4, 66
+3064.1, 393
+3912.5, 1061
+
+hot
+Formanten von 'o'
+660.3,  556
+858.7, 462
+2990.2, 113
+3747.8, 331
+
+
+Anne
+Formanten 'nn'
+366.6, 131
+1615.8, 360
+2927.5, 7
+4367.3, 525
+
+Amme
+Formanten 'mm'
+408.7, 60
+1543.1, 170
+2929.4, 211
+4035.4, 75
+
+Affe
+Formanten von 'ff'
+1417.1, 1246
+2520.3, 588
+3575.1, 437
+4330.1, 272
+
+Asche
+Formanten 'a'
+886.2, 156
+1475.1, 509
+2968.1, 386
+3925.6, 634
+
+Formanten 'sch'
+2115.5, 779
+3068.9, 295
+3670.1, 2548
+4502.4, 998
+
+Formanten 'e'
+557.1, 164
+1384.1, 195
+2902.1, 193
+3611.2, 183
+
+Achse
+Formanten von '

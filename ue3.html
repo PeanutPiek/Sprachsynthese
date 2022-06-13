@@ -19,23 +19,421 @@
 </iframe>
 
 <h2>&Uuml;bung 3</h2>
-<br><h3>Aufgabe 1 - 1.1</h3>
-<video controls width="650" height="550">
-    <!--source src="./video/greenscreen.webm" type="video/mp4" /-->
-    <source src="./video/wildlife.webm" type="video/webm" />
-</video>
+<br><h3>Aufgabe 1</h3>
 <p>Beschreibung</p>
+<p>Schreibe ein Matlab-Skript zur Berechnung eines Histogramms für eine Sprachdatei 
+(Wertebereich -1 -&gt; 1, Intervallgröße 0,1). Zeichne für jedes Gruppenmitglied mit PRAAT 
+einen Satz (ca. 10 Wörter) auf und berechne jeweils die Histogramme (Pausen vor und 
+hinter dem Sprachsignal mit PRAAT abschneiden). Zeichne diese für die einzelnen Dateien 
+graphisch in dasselbe Diagramm (x-Achse: Amplituden-Wertebereiche, y-Achse: 
+Prozentangaben). Wie unterscheiden sich die ADVs der einzelnen Dateien? Aus dem 
+Histogramm läßt sich auch ablesen, wie gut die Aufnahmen ausgesteuert sind und ob das 
+Signal einen DC-Offset hat. Wie?</p>
+<br>
+<p>L&ouml;sung</p>
+<p>Matlab-Skript</p>
+<pre>
+
+</pre>
+<br>
+<p>Da die Übungsgruppe nur aus einer Person besteht und in dieser Aufgabe Signale, unterschiedlicher Quellen/Personen, verglichen werden sollen, habe ich mir Unterstützung von aussen geholt.<br>Hierbei entsteht ein direkter Vergleich zwischen männlicher und weiblicher Aufnahmen.</p>
+<br>
+<p>Aufgezeichneter Satz</p>
+<p>"<b>Die Grundlage einer Geschichte ist die Lyrik, Epik oder Dramatik.</b>"</p>
+<br>
+<p>Für die enthaltenen Frequenzdiagramme wurde das <i>Spiegelbild</i>, aus optischen Gründen, in den negativen Bereich verschoben. Die enthaltenen Werte sind wahlweise zu ignorieren oder im Betrag zu verwenden.</p>
+<p>Aus dem Histogramm kann ermittelt werden, wie gut die Aufnahme ausgesteuert ist. Dabei geht es darum, eine ausreichende Dynamik zu bieten, um das benötigte Frequenzspektrum abzutasten.</p>
+<p>Aus den Histogrammen kann der DC Offset abgelesen werden, indem die Verschiebung auf der X-Achse ermittelt wird.</p>
+<table>
+<tr>
+<th>M&auml;nlich</th>
+<th>Weiblich</th>
+<th></th>
+</tr>
+<tr>
+<td><audio controls><source src="UE3/Satz.wav" type="audio/wav"></audio></td>
+<td><audio controls><source src="UE3/Satz_f.wav" type="audio/wav"></audio></td>
+</tr>
+	<td colspan="2"><p align="center">Histogramme</p></td>
+</tr>
+<tr>
+<td><img src="UE3/Histogram_m.jpg" alt="Histogram Maenlich" width="400" height="300"></td>
+<td><img src="UE3/Histogram_f.jpg" alt="Histogram Weiblich" width="400" height="300"></td>
+</tr>
+<tr>
+	<td colspan="2"><p align="center">FFT</p></td>
+</tr>
+<tr>
+<td><img src="UE3/fft_m.jpg" alt="Frequenzbereich Maenlich" width="400" height="300"></td>
+<td><img src="UE3/fft_f.jpg" alt="Frequenzbereich Weiblich" width="400" height="300"></td>
+</tr>
+<tr>
+	<td colspan="2"><p align="center">ADV</p></td>
+</tr>
+<tr>
+<td style="text-align:center;" colspan="2"><img src="UE3/Histogram_z.jpg" alt="Histogram Beide" width="600" height="400"></td>
+</tr>
+<tr>
+<td style="text-align:center;" colspan="2"><img src="UE3/Histogram_z_e3.jpg" alt="Histogram Beide Zoom" width="600" height="400"></td>
+</tr>
+</table>
+<br>
+
+<p>Es zeigt sich, dass die Aufnahmen ausreichend ausgesteuert sind, da alle enthaltenen Frequenzen abgetastet werden konnten.<br>Durch die Pausen zwischen den einzelnen Worten sind relativ viele 'Leerwerte' (0) in der Aufnahme enthalten.<br>Die männliche Aufnahme (orange) hat dabei ein schmaleres Frequenzspektrum, als die weibliche Aufnahme (blau)</p>
+
+<h4>Zeitsignal: Gesprochener Satz 'M'</h4>
+<img src="UE3/Satz_wave.png" alt="Wellenform Maenlich" width="800" height="600">
+<br>
+<h4>Zeitsignal: Gesprochener Satz 'W'</h4>
+<img src="UE3/Satz_f_wave.png" alt="Wellenform Weiblich" width="800" height="600">
+<br>
+
+<!-- Beschreibung zur Lösung 1 -->
+
+<br>
+<br><h3>Aufgabe 2</h3>
+<p>Beschreibung</p>
+<p>Phoneme sind die kleinsten bedeutungsunterscheidenden Elemente einer Sprache. In dieser
+Übung werden wir sogenannte Minimalpaare, d.h. Wörter, die sich genau in einem Phonem
+unterscheiden, suchen, diese aufzeichnen und die Oszillogramme, d.h. die Zeitsignale,
+segmentieren und vergleichen. <br>Wenn sämtliche Beispiele markiert sind, wollen wir die Unterschiede zwischen den Vokalen,
+bzw. Konsonanten im Oszillogramm und im Spektrogramm untersuchen. In welchen
+Merkmalen unterscheiden sich die von euch gewählten Konsonanten und wie drücken sich
+diese im Oszillogramm und Spektrogramm aus? In welchem Frequenzbereich befindet sich
+z.B. die meiste Energie?<br>Beachtet besonders genau die Übergänge V-&gtC und C-&gtV. Welche Artikulationsart, bzw. -
+stelle bezeichnet die von euch gewählten Konsonanten? Am besten probiert man das an
+sich selbst aus, d.h. die Lautfolge langsam sprechen und darauf achten, wie sich die Zunge
+im Mundraum bewegt (vor-&gt;zurück, hoch-&gt;tief) etc.<br>
+Wie unterscheiden sich die von euch gewählten Vokale (Zungenposition, Länge -&gt
+ausmessen, Lippenrundung +/-)? Vergleicht die Oszillogramme/Spektrogramme
+verschiedener Sprecher, ähneln sich diese für den gleichen Laut?</p>
+<br>
+<br><h4>Aufgabe 2.1</h4>
+<p>Beschreibung</p>
+<p><b>einsilbig mit wechselndem Vokal: CVC (insgesamt fünf verschiedene)</b></p>
+<br>
 <p>L&ouml;sung</p>
 
-<br><h3>Aufgabe 1 - 1.2</h3>
+<p><b>hat, hit, hut, het, hot</b></p>
+<p>Die Wortteile 'het' und 'hot' sind dabei keine alleinstehenden Begriffe der detuschen Sprache! Um diese dennoch vergleichen zu können wurden die Wortteile als fiktive Worte im Kontext der deutschen Sprache (grammatikalisch korrekt) eingesprochen.</p>
+<br>
+<audio controls><source src="UE3/CVC.wav" type="audio/wav"></audio>
+<br>
+
+<img src="UE3/CVC_Segmented.png" alt="CVC Segmentiert" width="600" height="400">
+
+<table>
+	<tr>
+		<th>Wort</th>
+		<th>Signal</th>
+	</tr>
+	<tr>
+		<td>hat</td>
+		<td>
+			<img src="./UE3/hat.png" alt="hat" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>hit</td>
+		<td>
+			<img src="./UE3/hit.png" alt="hit" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>hut</td>
+		<td>
+			<img src="./UE3/hut.png" alt="hut" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>het</td>
+		<td>
+			<img src="./UE3/het.png" alt="het" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>hot</td>
+		<td>
+			<img src="./UE3/hot.png" alt="hot" width="400" height="300">
+		</td>
+	</tr>
+</table>
+
+<!-- Beschreibung zur Lösung 2.1 -->
+<p>Die konstanten Anteile (h und t) der Signale sind klar erkennbar. Dazwischen findet an der Stelle des Vokals eine offensichtliche Änderung statt. Die Vokale zeigen dabei eine ähnliche Periodizität. Der Übergang vom 'h' zum Vokal ist sehr deutlich erkennbar. An dieser Stelle wechselt das Signal mit sehr hoher Frequenz und geringer Amplitude (glottaler Laut 'h') auf einen Pegel mit geringerer Frequenz und h&ouml;herer Amplitude (Vokal). Abschließend folgt ein plosiver Laut mit relativ langer Pause. Alle Vokale enthalten relativ hohe Energieanteile im Bereich &le; 4kHz.</p>
+
+<br>
+<br><h4>Aufgabe 2.2</h4>
+<p>Beschreibung</p>
+<p><b>zweisilbig mit wechselndem Konsonanten: VCV (insgesamt fünf verschiedene)</b></p>
+<br>
 <p>L&ouml;sung</p>
 
-<br><h3>Aufgabe 2 - 2.1</h3>
-<p>L&ouml;sung</p>
+<p><b>Anne, Amme, Affe, Asche, Achse</b></p>
+<br>
+<audio controls><source src="UE3/VCV.wav" type="audio/wav"></audio>
+<br>
 
-<br><h3>Aufgabe 2 - 2.2</h3>
-<p>L&ouml;sung</p>
+<img src="UE3/VCV_Segmented.png" alt="VCV Segmentiert" width="600" height="400">
 
+<table>
+	<tr>
+		<th>Wort</th>
+		<th>Signal</th>
+	</tr>
+	<tr>
+		<td>Anne</td>
+		<td>
+			<img src="./UE3/anne.png" alt="Anne" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>Amme</td>
+		<td>
+			<img src="./UE3/amme.png" alt="Amme" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>Affe</td>
+		<td>
+			<img src="./UE3/affe.png" alt="Affe" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>Asche</td>
+		<td>
+			<img src="./UE3/asche.png" alt="Asche" width="400" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>Achse</td>
+		<td>
+			<img src="./UE3/achse.png" alt="Achse" width="400" height="300">
+		</td>
+	</tr>
+</table>
+
+<!-- Beschreibung zur Lösung 2.2 -->
+<p>Die konstanten Anteile (hier: a und @) sind in allen Signalen klar erkennbar.
+<br>Auch wenn das Wort 'Achse' nicht der Definition eines Phonems entspricht (da hier ein Laut durch zwei ausgetauscht wird), wurde dieses Wort interessehalber verwendet. Es zeigt sich hier, dass die Verschiebung eines einzelnen Symbols innerhalb des Wortes (<b>s</b> vor <b>ch</b> &gt; <b>s</b> nach <b>ch</b>) das Zeitsignal über den nächsten Laut hinweg sichtlich beeinflusst. Dabei sind die übrigen Konsonanten im Zeitsignal relativ ähnlich zum Folgelaut (@). Beim 's' tritt jedoch eine wesentlich geringere Periodizität auf, worduch ein wesentlich markanterer Signalwechsel zum Folgelaut entsteht.</p>
+
+<br>
+<br><h3>Aufgabe 3</h3>
+
+<p>Beschreibung</p>
+<p>Die Aufgabe in unserer Übung besteht nun daran, für die einzelnen Teilnehmer
+Formantkarten zu bestimmen. Dazu komplettieren wir die Vokale, die in den Beispielen aus
+Übung 3.2 noch fehlten, messen die Formantfrequenzen und tragen sie in ein
+Koordinatensystem ein (Plot der Formantfrequenzen für die Gruppenteilnehmer ins
+Protokoll). Dabei sollten die Messwerte aus PRAAT kritisch betrachtet werden, da es
+besonders bei hinteren Vokalen zu Fehlern, d.h. zur Vertauschung von Formanten kommen
+kann. Die Werte in der Tabelle dienen daher auch als Orientierung. Bei Diphthongen wie [aI]
+und [OY] hat die Messung in der Mitte keinen Sinn, sondern es müssen zwei Punkte, einer
+am Anfang und einer am Ende des Vokals gemessen werden.</p>
+<br>
+<p>L&ouml;sung</p>
+<br>
+<p>Formatentabelle</p>
+<table border="1">
+	<tr>
+		<th>Vokal</th>
+		<th>F1 [Hz]</th>
+		<th>F2 [Hz]</th>
+		<th>F3 [Hz]</th>
+		<th>F4 [Hz]</th>
+	</tr>
+	<tr>
+		<td>a</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>824.5</td>
+					<td>161</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>1439.9</td>
+					<td>227</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2866.8</td>
+					<td>604</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>3965.2</td>
+					<td>574</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>i</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>352.5</td>
+					<td>250</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2002.1</td>
+					<td>109</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2760.2</td>
+					<td>269</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>3778.2</td>
+					<td>172</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>u</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>642</td>
+					<td>86</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2181.9</td>
+					<td>192</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2991.6</td>
+					<td>2434</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>4220.8</td>
+					<td>757</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>e</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>336.4</td>
+					<td>54</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2310.4</td>
+					<td>66</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>3064.1</td>
+					<td>393</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>3912.5</td>
+					<td>1061</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>o</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>660.3</td>
+					<td>556</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>858.7</td>
+					<td>462</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>2990.2</td>
+					<td>113</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table border="1">
+				<tr>
+					<td>3747.8</td>
+					<td>331</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p>Die Frequenzen vom Laut 'u' weichen deutlich vom Erwartungswert (F1=~300Hz) ab.</p>
+
+<h4>Formantenkarte</h4>
+
+<img src="UE3/Formantenkarte.jpg" alt="Formntenkarte" width="800" height="600">
+
+<!-- Beschreibung zur Lösung 3 -->
+
+<br>
+<hr>
+<a href="./UE3/plot_histogram.m" target="_blank">Matlab-Skript Histogramm</a>
 
 </body>
 </html>
