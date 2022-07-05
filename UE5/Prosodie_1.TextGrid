@@ -1,0 +1,70 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.762086167800454 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "Silben" 
+        xmin = 0 
+        xmax = 4.762086167800454 
+        intervals: size = 14 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.22394414594244294 
+            text = "_" 
+        intervals [2]:
+            xmin = 0.22394414594244294 
+            xmax = 0.502987577513137 
+            text = "wer" 
+        intervals [3]:
+            xmin = 0.502987577513137 
+            xmax = 0.8329684191458742 
+            text = "liest" 
+        intervals [4]:
+            xmin = 0.8329684191458742 
+            xmax = 1.0154753227150422 
+            text = "die" 
+        intervals [5]:
+            xmin = 1.0154753227150422 
+            xmax = 1.2925800454116845 
+            text = "Zei" 
+        intervals [6]:
+            xmin = 1.2925800454116845 
+            xmax = 1.6678347192163787 
+            text = "tung" 
+        intervals [7]:
+            xmin = 1.6678347192163787 
+            xmax = 3.082289882719356 
+            text = "_" 
+        intervals [8]:
+            xmin = 3.082289882719356 
+            xmax = 3.186345654330766 
+            text = "der" 
+        intervals [9]:
+            xmin = 3.186345654330766 
+            xmax = 3.5153794750149254 
+            text = "Mann" 
+        intervals [10]:
+            xmin = 3.5153794750149254 
+            xmax = 3.851126196399134 
+            text = "liest" 
+        intervals [11]:
+            xmin = 3.851126196399134 
+            xmax = 3.9858381797644706 
+            text = "die" 
+        intervals [12]:
+            xmin = 3.9858381797644706 
+            xmax = 4.237930835887968 
+            text = "Zei" 
+        intervals [13]:
+            xmin = 4.237930835887968 
+            xmax = 4.559543267012106 
+            text = "tung" 
+        intervals [14]:
+            xmin = 4.559543267012106 
+            xmax = 4.762086167800454 
+            text = "_" 

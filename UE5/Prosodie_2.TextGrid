@@ -1,0 +1,94 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 7.96734693877551 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "Silben" 
+        xmin = 0 
+        xmax = 7.96734693877551 
+        intervals: size = 20 
+        intervals [1]:
+            xmin = 0 
+            xmax = 1.8248092713200845 
+            text = "_" 
+        intervals [2]:
+            xmin = 1.8248092713200845 
+            xmax = 2.0372824810650645 
+            text = "was" 
+        intervals [3]:
+            xmin = 2.0372824810650645 
+            xmax = 2.243923420430132 
+            text = "tut" 
+        intervals [4]:
+            xmin = 2.243923420430132 
+            xmax = 2.3281104698010853 
+            text = "der" 
+        intervals [5]:
+            xmin = 2.3281104698010853 
+            xmax = 2.594160073562351 
+            text = "Mann" 
+        intervals [6]:
+            xmin = 2.594160073562351 
+            xmax = 2.6400802823101435 
+            text = "mit" 
+        intervals [7]:
+            xmin = 2.6400802823101435 
+            xmax = 2.6816271378438605 
+            text = "_" 
+        intervals [8]:
+            xmin = 2.6816271378438605 
+            xmax = 2.7795422382730433 
+            text = "der" 
+        intervals [9]:
+            xmin = 2.7795422382730433 
+            xmax = 2.824004662616144 
+            text = "_" 
+        intervals [10]:
+            xmin = 2.824004662616144 
+            xmax = 3.0536057063551074 
+            text = "Zei" 
+        intervals [11]:
+            xmin = 3.0536057063551074 
+            xmax = 3.393781477771855 
+            text = "tung" 
+        intervals [12]:
+            xmin = 3.393781477771855 
+            xmax = 4.951785224488784 
+            text = "_" 
+        intervals [13]:
+            xmin = 4.951785224488784 
+            xmax = 5.058761298591706 
+            text = "der" 
+        intervals [14]:
+            xmin = 5.058761298591706 
+            xmax = 5.401654811367711 
+            text = "Mann" 
+        intervals [15]:
+            xmin = 5.401654811367711 
+            xmax = 5.725722797952092 
+            text = "liest" 
+        intervals [16]:
+            xmin = 5.725722797952092 
+            xmax = 5.78623341785374 
+            text = "die" 
+        intervals [17]:
+            xmin = 5.78623341785374 
+            xmax = 5.829935532227153 
+            text = "_" 
+        intervals [18]:
+            xmin = 5.829935532227153 
+            xmax = 6.102377799639902 
+            text = "Zei" 
+        intervals [19]:
+            xmin = 6.102377799639902 
+            xmax = 6.3773649500818355 
+            text = "tung" 
+        intervals [20]:
+            xmin = 6.3773649500818355 
+            xmax = 7.96734693877551 
+            text = "_" 

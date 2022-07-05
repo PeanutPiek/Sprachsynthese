@@ -1,0 +1,66 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 7.81061224489796 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "Silben" 
+        xmin = 0 
+        xmax = 7.81061224489796 
+        intervals: size = 13 
+        intervals [1]:
+            xmin = 0 
+            xmax = 2.4951937532725106 
+            text = "_" 
+        intervals [2]:
+            xmin = 2.4951937532725106 
+            xmax = 2.7151823869621774 
+            text = "was" 
+        intervals [3]:
+            xmin = 2.7151823869621774 
+            xmax = 2.9450899238977013 
+            text = "liest" 
+        intervals [4]:
+            xmin = 2.9450899238977013 
+            xmax = 3.0903228901203748 
+            text = "der" 
+        intervals [5]:
+            xmin = 3.0903228901203748 
+            xmax = 3.358482505272992 
+            text = "Mann" 
+        intervals [6]:
+            xmin = 3.358482505272992 
+            xmax = 4.623850338394554 
+            text = "_" 
+        intervals [7]:
+            xmin = 4.623850338394554 
+            xmax = 4.752909419315036 
+            text = "der" 
+        intervals [8]:
+            xmin = 4.752909419315036 
+            xmax = 5.081828793319743 
+            text = "Mann" 
+        intervals [9]:
+            xmin = 5.081828793319743 
+            xmax = 5.4115766796015405 
+            text = "liest" 
+        intervals [10]:
+            xmin = 5.4115766796015405 
+            xmax = 5.492770882756354 
+            text = "die" 
+        intervals [11]:
+            xmin = 5.492770882756354 
+            xmax = 5.762037372810586 
+            text = "Zei" 
+        intervals [12]:
+            xmin = 5.762037372810586 
+            xmax = 6.026605599557929 
+            text = "tung" 
+        intervals [13]:
+            xmin = 6.026605599557929 
+            xmax = 7.81061224489796 
+            text = "_" 

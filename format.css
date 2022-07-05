@@ -114,3 +114,11 @@
     font: normal 100% Berlin Sans FB;
     color:#F5F6CE;
   }
+  
+  table.mytable {
+	  width: 100%;
+  }
+  
+  table.mytable td {
+	  text-align: center;
+  }

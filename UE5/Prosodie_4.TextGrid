@@ -1,0 +1,66 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 6.661224489795918 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "Silben" 
+        xmin = 0 
+        xmax = 6.661224489795918 
+        intervals: size = 13 
+        intervals [1]:
+            xmin = 0 
+            xmax = 1.6344174593371643 
+            text = "_" 
+        intervals [2]:
+            xmin = 1.6344174593371643 
+            xmax = 1.8398777019172827 
+            text = "was" 
+        intervals [3]:
+            xmin = 1.8398777019172827 
+            xmax = 1.972732521046935 
+            text = "pas" 
+        intervals [4]:
+            xmin = 1.972732521046935 
+            xmax = 2.1829944868595663 
+            text = "siert" 
+        intervals [5]:
+            xmin = 2.1829944868595663 
+            xmax = 2.424548703458934 
+            text = "da" 
+        intervals [6]:
+            xmin = 2.424548703458934 
+            xmax = 3.815774527989147 
+            text = "_" 
+        intervals [7]:
+            xmin = 3.815774527989147 
+            xmax = 3.9308778965339957 
+            text = "der" 
+        intervals [8]:
+            xmin = 3.9308778965339957 
+            xmax = 4.208770314877987 
+            text = "Mann" 
+        intervals [9]:
+            xmin = 4.208770314877987 
+            xmax = 4.536814915230806 
+            text = "liest" 
+        intervals [10]:
+            xmin = 4.536814915230806 
+            xmax = 4.6042326025213605 
+            text = "die" 
+        intervals [11]:
+            xmin = 4.6042326025213605 
+            xmax = 4.868970350174513 
+            text = "Zei" 
+        intervals [12]:
+            xmin = 4.868970350174513 
+            xmax = 5.077002683792243 
+            text = "tung" 
+        intervals [13]:
+            xmin = 5.077002683792243 
+            xmax = 6.661224489795918 
+            text = "_" 
