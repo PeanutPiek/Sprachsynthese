@@ -100,6 +100,8 @@ bei den anderen (1-3), bei denen nur nach einem Teil gefragt wird, von einem „
 	</tr>
 </table>
 
+<p>Auf dem Satzteil "Der Mann" liegt sichtbar der Fokus. Hierbei lässt sich eine erhöhte Frequenz bei "Mann" und eine relativ hohe Intensität erkennen.</p>
+
 <p><b>Fall 2</b></p>
 <audio controls><source src="./UE4/Prosodie_2.wav" type="audio/wav"></audio>
 <br>
@@ -159,6 +161,8 @@ bei den anderen (1-3), bei denen nur nach einem Teil gefragt wird, von einem „
 		<td>-</td>
 	</tr>
 </table>
+
+<p>Der enge Fokus liegt auf "liest" (die Zeitung). Bei "liest" ist die Grundfrequenz im Vergleich erhöht. Die Intensität gibt an dieser Stelle keinen Aufschluss.</p>
 
 <p><b>Fall 3</b></p>
 <audio controls><source src="./UE4/Prosodie_3.wav" type="audio/wav"></audio>
@@ -220,6 +224,8 @@ bei den anderen (1-3), bei denen nur nach einem Teil gefragt wird, von einem „
 	</tr>
 </table>
 
+<p>Auch hier lässt sich durch die erhöhte Frequenz der Fokus ausmachen. Leider war die Frequenz hier bereits bei "liest" erhöht. Bei der Frage "Was liest der Mann?" wird bei der Beantwortung ggf. das Verb mit betont.</p>
+
 <p><b>Fall 4</b></p>
 <audio controls><source src="./UE4/Prosodie_4.wav" type="audio/wav"></audio>
 <br>
@@ -279,6 +285,45 @@ bei den anderen (1-3), bei denen nur nach einem Teil gefragt wird, von einem „
 		<td>53</td>
 	</tr>
 </table>
+
+<p>In diesem Fall ist eine Betonung auf mehreren Satzteilen erkennbar (breiter Fokus). Bei den Silben "Mann", "liest" und "Zei" ist die Grundfrequenz im Vergleich erhöht. Auch ist die Intensität bei diesen Silben größer, als ohne Betonung.</p>
+
+<br><h3>Aufgabe 2</h3>
+<p>Nun manipulieren wir die Grundfrequenz f0(t) in Praat, indem wir mit unseren Sounds Manipulate-
+>To Manipulation aufrufen. Diese Manipulation beruht auf dem PSOLA-Verfahren, das wir bereits
+kennengelernt haben. Im ManipulationEditor sieht man oben die markierten Perioden im Sprachsignal,
+darunter einen Bereich, in dem Pitch (f0) angezeigt wird, und darunter einen Bereich zur Manipulation
+der Dauern.
+Im Manipulation-Editor können wir Pitch auf einen konstanten Wert setzen und so die ursprüngliche
+Grundfrequenz f0(t) auf einen konstanten Wert setzen, indem wir alle PitchPoints löschen und dafür
+einen einzelnen PitchPoint setzen. Damit erhalten wir monotone Versionen unserer Sätze. Untersuche
+durch Abhören, ob die ursprünglichen Bedeutungen, d.h. der Fokus, erhalten geblieben sind. Speichere
+die monotonen Versionen als WAV-Dateien ab (File->Publish Resynthesis überträgt das aktuelle Audio
+in das ObjectWindow).</p>
+<br>
+<p>Jetzt nehmen wir Fall 4) und verringern die Geschwindigkeit, indem wir einen DurationPoint mit
+dem Wert 1,2 einsetzen. Wir erhöhen den Wert in Schritten von 0,2, bis wir bemerken, dass sich die
+Klangqualität deutlich verschlechtert. Woran liegt das? Speichere diesen Fall als WAV-Datei ab.</p>
+
+<p>L&ouml;sung</p>
+
+<audio controls><source src="./UE4/Prosodie_4_1.wav" type="audio/wav"></audio>
+
+<p></p>
+
+<br><h3>Aufgabe 3</h3>
+<p>Zum Schluss nimm den Satz als Frage auf: „Der Mann liest die Zeitung?“ Vergleiche den
+Grundfrequenzverlauf mit der Aussage 4) und beschreibe die Unterschiede. Versuche nun, ob sich
+durch Übertragen des Pitch-Verlaufs die monotone Aussage in eine Frage ändern lässt. Das erfolgt
+ebenfalls im ManipulationEditor. Wir laden wieder die Aussage 4) und setzen in jede Silbe einen
+PitchPoint. Diese PitchPoints verschieben wir, bis die Aussage wie eine Frage klingt. Speichere auch
+diese Version als WAV-Datei ab.</p>
+
+<p>L&ouml;sung</p>
+
+<audio controls><source src="./UE4/Prosodie_4_f_1.wav" type="audio/wav"></audio>
+
+<p></p>
 
 </body>
 </html>
