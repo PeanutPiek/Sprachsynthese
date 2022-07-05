@@ -1,0 +1,441 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<style type="text/css">
+        <!--
+                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
+                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        //-->
+</style>
+</head>
+
+<body>
+
+<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
+         folgenden.</p>
+</iframe>
+
+<h2>&Uuml;bung 4</h2>
+<br><h3>Aufgabe 1</h3>
+<p>Beschreibung</p>
+<p>In dieser Übung beschäftigen wir uns mit der Modell der Spracherzeugung nach dem Quelle-
+Filter-Prinzip und seiner Nutzung bei der Sprachcodierung und -kompression. Bei diesem
+Modell wird das Sprachsignal in Anteile zerlegt, die von den Stimmbändern als Oszillator (bei
+stimmhaften Lauten) oder einer rauschhaften Anregung (bei stimmlosen Lauten) herrühren,
+d.h. der "Quelle", und solche, die aus der akustischen Filterung der "Quelle" durch den
+Vokaltrakt entstehen, dem "Filter". Mit Hilfe der sogenannten Linearen Prädiktion (LPC) lässt
+sich sich das Sprachsignal in der beschriebenen Weise in Quelle und Filter aufspalten. Die
+Software PRAAT stellt den LPC-Algorithmus zur Verfügung, den wir für diese Übung nutzen
+wollen. Das Filter, das den Vokaltrakt beschreibt, ist ein digitales Filter, wie wir es in der
+Vorlesung besprochen haben und wird durch seine Ordnung gekennzeichnet, d.h. die Anzahl
+seiner Verzögerungsglieder.</p>
+<br>
+<p>L&ouml;sung</p>
+<p>Verwendete Sprachdatei</p>
+<audio controls><source src="./UE3/Satz.wav" type="audio/wav"></audio>
+<br><br>
+<p>Verwendete Vocoderdatei</p>
+<audio controls><source src="./UE4/Vocoder_9_mono.wav" type="audio/wav"></audio>
+<br><br>
+
+<table border="1" style="width:100%">
+	<tr>
+		<th>Ordnung</th>
+		<th>Framebreite [ms]</th>
+		<th>Residualsignal</th>
+		<th>Rekonstruiert</th>
+		<th>Pulse Train</th>
+		<th>Noise</th>
+		<th>Vocoder<th>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center;"><b>1</b></td>
+		<td>25</td>
+		<td>
+			<img src="UE4/Residual_1_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_1_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_1_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_1_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_1_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_1_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_1_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_1_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_1_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_1_25.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>
+			<img src="UE4/Residual_1_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_1_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_1_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_1_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_1_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_1_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_1_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_1_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_1_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_1_50.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>
+			<img src="UE4/Residual_1_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_1_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_1_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_1_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_1_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_1_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_1_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_1_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_1_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_1_100.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center;"><b>6</b></td>
+		<td>25</td>
+		<td>
+			<img src="UE4/Residual_6_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_6_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_6_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_6_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_6_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_6_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_6_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_6_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_6_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_6_25.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>
+			<img src="UE4/Residual_6_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_6_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_6_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_6_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_6_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_6_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_6_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_6_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_6_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_6_50.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>
+			<img src="UE4/Residual_6_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_6_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_6_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_6_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_6_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_6_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_6_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_6_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_6_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_6_100.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center;"><b>10</b></td>
+		<td>25</td>
+		<td>
+			<img src="UE4/Residual_10_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_10_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_10_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_10_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_10_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_10_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_10_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_10_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_10_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_10_25.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>
+			<img src="UE4/Residual_10_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_10_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_10_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_10_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_10_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_10_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_10_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_10_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_10_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_10_50.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>
+			<img src="UE4/Residual_10_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_10_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_10_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_10_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_10_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_10_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_10_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_10_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_10_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_10_100.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center;"><b>16</b></td>
+		<td>25</td>
+		<td>
+			<img src="UE4/Residual_16_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_16_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_16_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_16_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_16_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_16_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_16_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_16_25.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_16_25.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_16_25.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>
+			<img src="UE4/Residual_16_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_16_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_16_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_16_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_16_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_16_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_16_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_16_50.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_16_50.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_16_50.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>
+			<img src="UE4/Residual_16_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Residual_Satz_16_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Sound_16_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Satz_16_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Pulsetrain_16_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Pulsetrain_Satz_16_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Whitenoise_16_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Whitenoise_Satz_16_100.wav" type="audio/wav"></audio></p>
+		</td>
+		<td>
+			<img src="UE4/Vocoder_16_100.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE4/Vocoder_Satz_16_100.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+</table>
+<br>
+
+<p>Die Verständlichkeit der Sprache im Residualsignal nimmt mit steigender Ordnung ab. Dabei nimmt sichtlich vorallem die Amplitude bei der Erhöhung der Ordnung ab. Bei der Vergrößerung des Analysefensters sind mehr Frequenzanteile in den Koeffizienten enthalten.</p>
+<p>Von der Lautstärke her ist n = 10 nicht mehr zu verstehen. Bei n = 6 lässt sich der Sprachrythmus noch leise erkennen. Die Breite des Analysefensters hat dabei keinen großen Einfluss. Bei höherer Ordnung wird ein Rauschen erkennbar, welches sich bei steigender Breite abmindert.</p>
+
+<p>Für die Übertragung der Informationen werden die Koeffizienten in <b>C</b> = 16bit kodiert. Pro Analysefenster müssen diese Koeffizienten und die Grundfrequenz f0 übermittelt werden. Die Anzahl der Koeffizienten entspricht der Filterordnung und wird mit <b>n</b> angegeben. Die Gesamtanzahl von Analysefenstern ergibt sich aus dem Verhältnis von Samplezeit und Breite des Analysefensters.<br>Mit <b>1/tf</b> erhalten wir die Samplefrequenz, welche angibt, wieviele Koeffizientensätze pro Sekunde ermittelt werden.</p>
+<p>Die Bitrate wird durch die Formel R = (n+1) * C/tf berechnet und wird in bit/s angegeben.<br>Die Gesamtmenge an Informationen wird mit B = (n+1) * t/tf * C berechnet.</p>
+<p>Die Gesamte Samplezeit beträgt t = 4.552s</p>
+
+<table style="width: 100%" border="1">
+	<tr>
+		<th>n</th>
+		<th>tf [ms]</th>
+		<th>B [kbit]</th>
+		<th>R [bit/s]</th>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center">1</td>
+		<td>25</td>
+		<td>5,827</td>
+		<td>1.280</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>2,914</td>
+		<td>640</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>1,457</td>
+		<td>320</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center">6</td>
+		<td>25</td>
+		<td>20,393</td>
+		<td>4.480</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>10,197</td>
+		<td>2.240</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>5,099</td>
+		<td>1.120</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center">10</td>
+		<td>25</td>
+		<td>32,047</td>
+		<td>7.040</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>16,024</td>
+		<td>3.520</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>8,012</td>
+		<td>1.760</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+	</tr>
+	<tr>
+		<td rowspan="3" style="text-align:center">16</td>
+		<td>25</td>
+		<td>49,526</td>
+		<td>10.880</td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>24,763</td>
+		<td>5.440</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>12,382</td>
+		<td>2.720</td>
+	</tr>
+</table>
+
+<p>Die Gesamtmenge an Informationen der Original PCM Datei wird berechnet durch B = C * f * k * t, mit <br>C = Bittiefe (=16bit), <br>f = Samplefrequenz (=44100Hz), <br>k = Anzahl der Kanäle (=1, da mono) und <br>t = Aufnahmedauer.<br>Damit ergibt sich <br>B = 16bit * 44100Hz * 1 * 4,522s = 3.211,892 kbit.</p>
+<p>Lassen wir bei der genannten Gleichung die Aufnahmedauer t weg, so erhalten wir die Datenrate pro Sekunde mit <br>R = 16bit * 44100Hz * 1 = 705,6 kbit/s.</p>
+
+<p>Vergleichen wir dieses Ergebnis mit den Werten aus der Tabelle, ergibt sich, dass die Übertragung der Koeffizienten wesentlich sparsamer ist, als die Übertragung der gesamten PCM Datei.<br>Betrachtet man die Gleichungen wird ersichtlich, dass die Anzahl an Werten pro Sekunde (f bzw. 1/tf) wesentlich geringer ist. Die Rekonstruktion aus den Koeffizienten und der Grundfrequenz ist somit von der Datenrate her empfehlenswert.</p>
+
+</body>
+</html>
