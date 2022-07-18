@@ -301,9 +301,6 @@ durch Abhören, ob die ursprünglichen Bedeutungen, d.h. der Fokus, erhalten geb
 die monotonen Versionen als WAV-Dateien ab (File->Publish Resynthesis überträgt das aktuelle Audio
 in das ObjectWindow).</p>
 <br>
-<p>Jetzt nehmen wir Fall 4) und verringern die Geschwindigkeit, indem wir einen DurationPoint mit
-dem Wert 1,2 einsetzen. Wir erhöhen den Wert in Schritten von 0,2, bis wir bemerken, dass sich die
-Klangqualität deutlich verschlechtert. Woran liegt das? Speichere diesen Fall als WAV-Datei ab.</p>
 
 <p>L&ouml;sung</p>
 
@@ -341,26 +338,44 @@ Klangqualität deutlich verschlechtert. Woran liegt das? Speichere diesen Fall a
 		<td>4</td>
 		<td>80Hz - 180Hz</td>
 		<td>
-			<img src="UE5/Prosodie_3_80Hz.png" alt="Praat Satz" width="600" height="300">
-			<p align="center"><audio controls><source src="./UE5/Prosodie_3_80Hz.wav" type="audio/wav"></audio></p>
+			<img src="UE5/Prosodie_4_80Hz.png" alt="Praat Satz" width="600" height="300">
+			<p align="center"><audio controls><source src="./UE5/Prosodie_4_80Hz.wav" type="audio/wav"></audio></p>
+		</td>
+	</tr>
+</table>
+<br>
+
+<p>Nach Modifikation der Spektren auf ein monotones 80Hz Level, ist die Bedeutung durchweg nicht mehr klar erkennbar. Die Antworten klingen dabei sehr ähnlich und der Fokus "verschwimmt".</p>
+
+<br><h3>Aufgabe 3</h3>
+<p>Jetzt nehmen wir Fall 4) und verringern die Geschwindigkeit, indem wir einen DurationPoint mit
+dem Wert 1,2 einsetzen. Wir erhöhen den Wert in Schritten von 0,2, bis wir bemerken, dass sich die
+Klangqualität deutlich verschlechtert. Woran liegt das? Speichere diesen Fall als WAV-Datei ab.</p>
+
+<p>L&ouml;sung</p>
+
+<p>Ab einem DurationPoint von 1.4 lässt sich beim Buchstaben "W" in der Frage ein "schnarren" erkennen.<br>Mit steigendem DurationPoint geht dieses in ein "knacken" über.</p>
+
+<audio controls><source src="./UE5/Prosodie_4_Dur_1_4.wav" type="audio/wav"></audio>
+
+<p>Bei einem DurationPoint von 2.0 ist das "Knacken" recht deutlich.</p>
+
+<table>
+	<tr>
+		<td>
+			<img src="UE5/Prosodie_4_Dur_2_W.png" width="600" height="300">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="UE5/Prosodie_4_Dur_2_W_.png" width="600" height="300">
 		</td>
 	</tr>
 </table>
 
-<br>
+<p>Wir sehen in dem Spektrum der manipulierten Tonspur, dass es wesentlich mehr "Spitzen" gibt. Dies erzeugt das "Knacken". <br>Für die Manipulation wurde ein TimeStep von 0.01s eingestellt. Vermutlich wird über diesen Step hinweg das Spektrum kopiert/interpoliert und verstärkt. Die Impulse im Spektrum des Buchstabens "W" bzw. Phonems [v] werden hier vervielfälltigt. Die Häufung der Impulse ist in der Tonspur als "Knacken" hörbar.</p>
 
-<img src="UE5/Prosodie_4_s.png" alt="Praat Satz" width="600" height="300">
-<p align="center"><audio controls><source src="./UE5/Prosodie_4_s.wav" type="audio/wav"></audio></p>
-
-<p>Die Tonspur wird, durch die Manipulation mittels DurationPoint, dem Anschein nach, auf die existierende Dauer ausgedehnt. </p>
-<p>In der Version mit entfernten Pitch Points:<br>Ab einem DurationPoint von 4 bricht die Tonspur beim Wechsel der Silbe "Zei" auf die Silbe "tung" ab.<br>Wird nur die Frage im Fall 4 betrachtet, wird die letzte Silbe ("da") ab einem DurationPoint von ~8.5 teils verschluckt, bis diese vollständig entfällt.<br>Die Sprache ist bis dahin und darüber hinaus noch verständlich, auch wenn diese entsprechend stark verzögert wird.</p>
-<p>In der Version mit Pitch Points:<br>Die Pitch Einflüsse werden deutlich hervorgehoben.</p>
-
-<audio controls><source src="./UE4/Prosodie_4_1.wav" type="audio/wav"></audio>
-
-<p></p>
-
-<br><h3>Aufgabe 3</h3>
+<br><h3>Aufgabe 4</h3>
 <p>Zum Schluss nimm den Satz als Frage auf: „Der Mann liest die Zeitung?“ Vergleiche den
 Grundfrequenzverlauf mit der Aussage 4) und beschreibe die Unterschiede. Versuche nun, ob sich
 durch Übertragen des Pitch-Verlaufs die monotone Aussage in eine Frage ändern lässt. Das erfolgt
@@ -368,11 +383,29 @@ ebenfalls im ManipulationEditor. Wir laden wieder die Aussage 4) und setzen in j
 PitchPoint. Diese PitchPoints verschieben wir, bis die Aussage wie eine Frage klingt. Speichere auch
 diese Version als WAV-Datei ab.</p>
 
+
 <p>L&ouml;sung</p>
 
-<audio controls><source src="./UE4/Prosodie_4_f_1.wav" type="audio/wav"></audio>
+<p>Der Pitch-Verlauf der Frage verläuft relativ konstant, mit einem leichtem, temporärem Anstieg bei der Wort "ließt" und erhöht sich stark zum Ende des Satzes.<br/>Hingegen der Pitch-Verlauf der Antwort lediglich eine leichte Erhöhung (ab Satzmitte) verzeichnet.</p>
+<table>
+	<tr>
+		<td>
+			<img src="UE5/Prosodie_4_f_o.png" width="600" height="300">
+		</td>
+		<td>
+			<img src="UE5/Prosodie_4_f_w.png" width="600" height="300">
+		</td>
+	</tr>
+</table>
+<br>
 
-<p></p>
+<audio controls><source src="./UE5/Prosodie_4_f.wav" type="audio/wav"></audio>
+
+<p>Wird der Frequenzverlauf in etwa wie folgt übernommen, so kann aus der monotonen Version von Fall 4 eine Frage erstellt werden. Dabei wurden einige Pitch-Points gesetzt, um die Verlaufskurve der Frage grob nachzubilden.</p>
+
+<img src="UE5/Prosodie_4_f_z.png" width="600" height="300">
+<br>
+<audio controls><source src="./UE5/Prosodie_4_f_z.wav" type="audio/wav"></audio>
 
 </body>
 </html>
